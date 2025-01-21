@@ -158,6 +158,7 @@ static int load(const char *id,
 static bool __attribute__ ((unused)) path_in_path(const char *path, const char *in_path) {
     char real_path[PATH_MAX];
     if (realpath(path, real_path) == NULL) return false;
+    strcpy(real_path, path);
 
     char real_in_path[PATH_MAX];
     if (realpath(in_path, real_in_path) == NULL) return false;

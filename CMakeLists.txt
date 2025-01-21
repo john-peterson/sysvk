@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.26)
 
 project(sysvk)
 
-add_library(sysvk SHARED sysvk.c)
-target_link_libraries(sysvk hardware)
+add_library(sysvk SHARED hardware.c sysvk.c)
+target_link_libraries(sysvk cutils vndksupport)
 target_include_directories(sysvk SYSTEM PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 install(TARGETS sysvk 
